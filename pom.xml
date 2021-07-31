@@ -127,16 +127,16 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <repositories>
-    <repository>
-      <id>openimaj-maven</id>
-      <url>http://maven.openimaj.org/</url>
-    </repository>
-    <repository>
-      <id>openimaj-snapshots</id>
-      <url>http://snapshots.openimaj.org/</url>
-    </repository>
-  </repositories>
+    <repositories>
+        <repository>
+            <id>OpenIMAJ maven releases repository</id>
+            <url>http://maven.openimaj.org</url>
+        </repository>
+        <repository>
+            <id>OpenIMAJ maven snapshots repository</id>
+            <url>http://snapshots.openimaj.org</url>
+        </repository>
+    </repositories>
   <build>
     <plugins>
       <plugin>
