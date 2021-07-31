@@ -16,16 +16,13 @@ import java.awt.Dimension;
 
 public class FaceDetector extends JFrame {
 
-    public BufferedImage readImg(String fn, int x, int y) throws IOException {
-        int width = x;
-        int height = y;
+    public BufferedImage readImg(String filePath) throws IOException {
         BufferedImage image = null;
         File f = null;
 
         //read image
         try {
-            f = new File(fn); //image file path
-            image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+            f = new File(filePath); //image file path
             image = ImageIO.read(f);
         } catch (IOException e) {
             System.out.println("Error: " + e);
@@ -40,11 +37,9 @@ public class FaceDetector extends JFrame {
     private List<DetectedFace> faces = null;
 
     public FaceDetector(String[] a) throws IOException {
-        int w = Integer.parseInt(a[1]);
-        int h = Integer.parseInt(a[2]);
-        img = readImg(a[0], w, h);
+        img = readImg(a[0]);
         ImagePanel panel = new ImagePanel(img);
-        panel.setPreferredSize(new Dimension(w, h));
+        panel.setPreferredSize(new Dimension(img.getWidth(), img.getHeight()));
         add(panel);
         setTitle("Face Recognizer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -78,11 +73,11 @@ public class FaceDetector extends JFrame {
     }
 
     public static void main(String[] args) throws IOException {
-        if (args.length == 3) {
+        if (args.length == 1) {
             FaceDetector fd = new FaceDetector(args);
             fd.detectFace();
         } else {
-            System.out.println("run imageFile.jpg Width Height");
+            System.out.println("run imageFile.jpg");
         }
     }
 }
