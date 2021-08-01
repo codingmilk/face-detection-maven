@@ -47,7 +47,7 @@ public class FaceDetector extends JFrame {
     public void showFace() {
         JFrame fr = new JFrame("Discovered Faces");
 
-        if (!detectFace(fr)) return;
+        if (!detectFaceToShow(fr)) return;
 
         fr.setLayout(new FlowLayout(FlowLayout.LEFT));
         fr.setSize(500, 500);
@@ -55,7 +55,7 @@ public class FaceDetector extends JFrame {
         fr.setVisible(true);
     }
 
-    private boolean detectFace(JFrame fr) {
+    private boolean detectFaceToShow(JFrame fr) {
         // Add face detection functionality here
         faces = detector.detectFaces(ImageUtilities.createFImage(img));
 
