@@ -29,7 +29,6 @@ public class FaceDetector extends JFrame {
     }
 
     private static final long serialVersionUID = 1L;
-    private static final HaarCascadeDetector detector = new HaarCascadeDetector();
     private final BufferedImage img;
     private List<DetectedFace> faces;
 
@@ -57,7 +56,7 @@ public class FaceDetector extends JFrame {
 
     private boolean detectFaceToShow(JFrame fr) {
         // Add face detection functionality here
-        faces = detector.detectFaces(ImageUtilities.createFImage(img));
+        faces = new HaarCascadeDetector().detectFaces(ImageUtilities.createFImage(img));
 
         if (faces == null) {
             System.out.println("No faces found in the captured image");
