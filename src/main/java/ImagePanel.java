@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 class ImagePanel
         extends JPanel {
-    private Image img;
+    private final Image img;
 
     public ImagePanel(String img) {
         this(new ImageIcon(img).getImage());
@@ -22,6 +22,7 @@ class ImagePanel
         setLayout(null);
     }
 
+    @Override
     public void paintComponent(Graphics g) {
         g.drawImage(this.img, 0, 0, null);
     }
